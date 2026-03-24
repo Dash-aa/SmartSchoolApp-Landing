@@ -4,19 +4,152 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #222;
-  background: #f7f9fc;
-  padding: 20px;
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --accent: #1d4ed8;
+  --accent-dark: #163ea8;
+  --muted: #6b7280;
+  --border: #dbe3ef;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-header, main, footer {
-  max-width: 1100px;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: linear-gradient(180deg, #eef4ff 0%, #f8fbff 100%);
+}
+
+.container {
+  width: min(1100px, calc(100% - 32px));
   margin: 0 auto;
 }
 
-header, section, footer {
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 84px;
+}
+
+.hero {
+  padding: 48px 0 24px;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.illustration {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 16px auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.hero-text,
+section .container {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+section {
   margin-bottom: 24px;
+}
+
+h1, h2 {
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+h2 {
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  color: var(--accent);
+}
+
+p, li {
+  font-size: 1rem;
+}
+
+ol {
+  padding-left: 22px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  padding: 28px 0;
+}
+
+footer .container {
+  text-align: center;
+  color: var(--muted);
+}
+
+/* 📱 АДАПТИВНІСТЬ */
+@media (max-width: 900px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .hero-image {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-text,
+  section .container {
+    padding: 20px;
+  }
 }
